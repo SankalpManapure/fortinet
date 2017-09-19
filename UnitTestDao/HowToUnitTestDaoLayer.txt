@@ -1,0 +1,15 @@
+When using Spring and Hibernate we can Unit Test the Dao methods using Mock Objects
+
+Lets say we write a project for a Car company whose requirement is they need to save the car details and retrieve if the car details are present in the database.
+So we will create a Car Object having property id, make, company, colour, and isSelfDriving. So Car will be our entity Object.
+We will have a controller class which will get the Car details for saving.
+We will have a service layer that will call the Dao layer for saving the Car details.
+Lets say the database is not ready or we dont yet have access to the database.
+
+So what we can do is, we will mock the Dao layer, using Mockito and Junit.
+Lets say our save(Car c) and retrive(String make) method returns the Car Object.
+
+We can write a Test class with @RunWith(MockitoJUnitRunner.class).
+We will mock the Dao class with @Mock annotation and when calling the save or retrieve method, we can return a hard-coded Car Object.
+
+In that manner we could Unit Test all our code from the Controller to Dao Layer without using an actual database by mocking the objects
